@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "displayName": "Ports Manager",
   "publisher": "SENODROOM",
-  "author": {
-    "name": "Muhammad Saad Amin",
-    "alias": "SENODROOM"
-  },
+  "author": "Muhammad Saad Amin",
   "description": "Launch paired frontend/backend projects on free ports with CORS handling and optional VS Code/Cursor terminals.",
   "main": "./dist/bridge/src/extension.js",
   "exports": {
@@ -20,8 +17,12 @@
     "node": ">=18",
     "vscode": "^1.85.0"
   },
-  "categories": ["Other"],
-  "activationEvents": ["onStartupFinished"],
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "contributes": {
     "commands": [
       {
@@ -66,5 +67,16 @@
     "cors",
     "dev-server"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SENODROOM/ports-manager.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SENODROOM/ports-manager/issues"
+  },
+  "homepage": "https://github.com/SENODROOM/ports-manager#readme"
 }
