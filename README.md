@@ -37,6 +37,29 @@ Ports Manager will:
 
 No application source files are rewritten.
 
+## Install once, run anywhere
+
+Install Ports Manager globally:
+
+```bash
+npm install --global ports-manager
+```
+
+Then open any supported project folder and run:
+
+```bash
+cd my-project
+ports-manager
+```
+
+💥 **Boom — both apps launch on free ports.**
+
+Prefer not to install globally? Use it directly with:
+
+```bash
+npx ports-manager
+```
+
 ## Quick start
 
 Your project should look like one of these:
@@ -53,7 +76,7 @@ Run Ports Manager from `my-project`, not from inside either child:
 
 ```bash
 cd my-project
-npx ports-manager
+ports-manager
 ```
 
 Example output:
