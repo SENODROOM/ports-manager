@@ -1,0 +1,7 @@
+node_modules/
+test/
+bridge/test/
+dist/bridge/test/
+*.vsix
+.gitignore
+.vscodeignore

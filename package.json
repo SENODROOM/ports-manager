@@ -1,0 +1,70 @@
+{
+  "name": "ports-manager",
+  "version": "1.0.0",
+  "displayName": "Ports Manager",
+  "publisher": "SENODROOM",
+  "author": {
+    "name": "Muhammad Saad Amin",
+    "alias": "SENODROOM"
+  },
+  "description": "Launch paired frontend/backend projects on free ports with CORS handling and optional VS Code/Cursor terminals.",
+  "main": "./dist/bridge/src/extension.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "bin": {
+    "ports-manager": "bin/ports-manager.js"
+  },
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18",
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": ["onStartupFinished"],
+  "contributes": {
+    "commands": [
+      {
+        "command": "ports-manager.stopAll",
+        "title": "Ports Manager: Stop All Managed Terminals"
+      }
+    ]
+  },
+  "scripts": {
+    "compile:bridge": "tsc -p tsconfig.bridge.json",
+    "test": "npm run test:cli && npm run test:bridge",
+    "test:cli": "node --test test/core.test.js test/cors.integration.test.js test/process.integration.test.js",
+    "test:bridge": "npm run compile:bridge && node --test dist/bridge/test/server.test.js",
+    "package:vsix": "npm run compile:bridge && vsce package --allow-missing-repository",
+    "package:ovsx": "npm run package:vsix",
+    "publish:ovsx": "ovsx publish",
+    "prepack": "npm run compile:bridge",
+    "start": "node bin/ports-manager.js"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "cosmiconfig": "^9.0.0",
+    "jsonc-parser": "^3.3.1",
+    "tree-kill": "^1.2.2"
+  },
+  "optionalDependencies": {
+    "http-proxy-middleware": "^3.0.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.2.2",
+    "ovsx": "^0.10.1",
+    "typescript": "^5.7.2"
+  },
+  "keywords": [
+    "ports",
+    "mern",
+    "cli",
+    "vscode",
+    "cursor",
+    "cors",
+    "dev-server"
+  ],
+  "license": "MIT"
+}

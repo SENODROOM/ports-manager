@@ -1,0 +1,13 @@
+bin/**
+src/**
+.gitignore
+.npmignore
+bridge/src/**
+bridge/test/**
+test/**
+tsconfig.bridge.json
+package-lock.json
+**/node_modules/**
+dist/bridge/test/**
+PLAN.md
+*.vsix
